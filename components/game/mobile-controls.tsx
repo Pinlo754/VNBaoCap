@@ -21,7 +21,7 @@ export default function MobileControls() {
   }
 
   return (
-    <div className="md:hidden fixed bottom-4 left-4 right-4 space-y-4 z-50">
+    <div className="md:hidden w-full space-y-4 mt-4">
       {/* D-Pad Controls */}
       <div className="flex justify-center gap-2 bg-card border-2 border-primary rounded-2xl p-4 shadow-lg">
         <div className="grid grid-cols-3 gap-1">

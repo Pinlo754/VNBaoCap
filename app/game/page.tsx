@@ -36,7 +36,7 @@ export default function Game() {
                 Game
               </h1>
               <p className="text-sm sm:text-base text-foreground/70 text-center mb-8">
-                Trải nghiệm cuộc sống thời bao cấp. Bắt đầu với 20kg lúa, giao dịch với các thương nhân, trả lời câu hỏi
+                Trải nghiệm cuộc sống thời bao cấp. Bắt đầu với 100kg lúa, giao dịch với các người nông dân khác, trả lời câu hỏi
                 để nhận giảm giá!
               </p>
 
