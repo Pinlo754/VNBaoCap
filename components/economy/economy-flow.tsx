@@ -54,7 +54,7 @@ const STEPS = [
 
 export default function EconomyFlow() {
   return (
-    <section className="rounded-xl border border-border/60 p-6 bg-gradient-to-br from-background to-muted/20">
+    <section id="flow" className="rounded-xl border border-border/60 p-6 bg-gradient-to-br from-background to-muted/20 scroll-mt-24">
       <h2 className="text-2xl font-serif font-semibold text-primary mb-6">
         Luồng Kinh Tế Bao Cấp
       </h2>

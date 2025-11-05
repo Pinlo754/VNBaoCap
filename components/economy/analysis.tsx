@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Analysis() {
   return (
-    <div>
+    <section id="analysis" className="scroll-mt-24">
       <div className="px-4 py-3">
         <h2 className="text-2xl font-serif font-semibold text-primary mb-6">
           Phân Tích Cơ Chế Bao Cấp
@@ -31,7 +31,7 @@ export default function Analysis() {
           niên 1970 – đầu 1980.
         </p>
       </div>
-    </div>
+    </section>
   );
 }
 
