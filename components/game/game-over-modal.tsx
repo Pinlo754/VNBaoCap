@@ -1,79 +1,84 @@
 "use client"
 
-import { useGameStore } from "@/lib/game-store"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { useEffect } from "react"
 
-interface GameOverModalProps {
-  playerName: string
-  onRestart: () => void
+interface GameResultModalProps {
+  isOpen: boolean
+  finalScore: number
+  correctAnswers: number
+  riceLeft: number
+  timeLeft: number
+  itemsCollected: number
+  onClose: () => void
+  onPlayAgain: () => void
 }
 
-export default function GameOverModal({ playerName, onRestart }: GameOverModalProps) {
-  const { gameState, inventory, saveScore } = useGameStore()
-
-  useEffect(() => {
-    if (gameState.gameOver) {
-      const itemsCollected = Object.values(inventory).filter((count) => count > 0).length
-      const score = itemsCollected * 10 + (gameState.totalScore || 0)
-      saveScore(playerName, score, itemsCollected)
-    }
-  }, [gameState.gameOver])
-
-  if (!gameState.gameOver) return null
-
-  const itemsCollected = Object.values(inventory).filter((count) => count > 0).length
-  const score = itemsCollected * 10 + (gameState.totalScore || 0)
-
+const GameOverModal = ({
+  isOpen,
+  finalScore,
+  correctAnswers,
+  riceLeft,
+  timeLeft,
+  itemsCollected,
+  onClose,
+  onPlayAgain,
+}: GameResultModalProps) => {
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 animate-fade-in">
-      <Card className="w-full max-w-md bg-card border-border shadow-2xl">
-        <CardHeader className="text-center">
-          <CardTitle className="text-3xl font-serif text-primary">Trò Chơi Kết Thúc!</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-6">
-            <div className="bg-muted/50 p-6 rounded-lg space-y-3">
-              <div className="flex justify-between">
-                <span className="text-foreground/70">Người Chơi:</span>
-                <span className="font-bold text-foreground">{playerName}</span>
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="sm:max-w-md">
+        <div className="flex flex-col items-center justify-center py-8">
+          <div className="text-5xl mb-4">🏆</div>
+          <h2 className="text-2xl font-bold text-center mb-6">Trò chơi kết thúc!</h2>
+
+          <div className="w-full space-y-4 mb-8">
+            <div className="bg-blue-50 p-4 rounded-lg">
+              <p className="text-sm text-gray-600">Điểm cuối cùng</p>
+              <p className="text-3xl font-bold text-blue-600">{finalScore}</p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-green-50 p-3 rounded-lg">
+                <p className="text-xs text-gray-600">Số lần được giảm giá</p>
+                <p className="text-2xl font-bold text-green-600">{correctAnswers}</p>
               </div>
-              <div className="flex justify-between">
-                <span className="text-foreground/70">Hàng Đã Thu:</span>
-                <span className="font-bold text-accent">{itemsCollected}/7</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-foreground/70">Điểm Số:</span>
-                <span className="font-bold text-primary text-lg">{score}</span>
+              <div className="bg-purple-50 p-3 rounded-lg">
+                <p className="text-xs text-gray-600">Hàng hóa</p>
+                <p className="text-2xl font-bold text-purple-600">{itemsCollected}</p>
               </div>
             </div>
 
-            <div className="space-y-2">
-              <Button
-                onClick={onRestart}
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bold"
-              >
-                Chơi Lại
-              </Button>
-              <Link href="/leaderboard" className="block">
-                <Button
-                  variant="outline"
-                  className="w-full border-primary text-primary hover:bg-primary/10 bg-transparent"
-                >
-                  Xem Bảng Xếp Hạng
-                </Button>
-              </Link>
-              <Link href="/" className="block">
-                <Button variant="ghost" className="w-full text-foreground hover:bg-muted">
-                  Về Trang Chủ
-                </Button>
-              </Link>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-orange-50 p-3 rounded-lg">
+                <p className="text-xs text-gray-600">Gạo còn lại</p>
+                <p className="text-2xl font-bold text-orange-600">{riceLeft}</p>
+              </div>
+              <div className="bg-indigo-50 p-3 rounded-lg">
+                <p className="text-xs text-gray-600">Thời gian còn lại(s)</p>
+                <p className="text-2xl font-bold text-indigo-600">{timeLeft}</p>
+              </div>
             </div>
           </div>
-        </CardContent>
-      </Card>
-    </div>
+
+          <div className="text-sm text-gray-600 mb-6 text-center">
+            <p>Công thức tính điểm:</p>
+            <p className="font-mono text-xs">
+              ({correctAnswers} × 10) + ({riceLeft} / 2) + ({timeLeft} / 10) = {finalScore}
+            </p>
+          </div>
+
+          <div className="flex gap-3 w-full">
+            <Button variant="outline" onClick={onClose} className="flex-1 bg-transparent">
+              Thoát
+            </Button>
+            <Button onClick={onPlayAgain} className="flex-1">
+              Chơi lại
+            </Button>
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
   )
 }
+
+export default GameOverModal;
