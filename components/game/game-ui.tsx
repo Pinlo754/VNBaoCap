@@ -3,6 +3,7 @@
 import { useEffect } from "react"
 import { useGameStore } from "@/lib/game-store"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import MobileControls from "../MobileControls"
 
 interface GameUIProps {
   playerName: string
@@ -115,6 +116,10 @@ export default function GameUI({ playerName }: GameUIProps) {
           </CardContent>
         </Card>
       )}
+
+      <div className="block sm:hidden">
+        <MobileControls />
+      </div>
     </div>
   )
 }

@@ -12,11 +12,15 @@ import { useGameStore } from "@/lib/game-store"
 export default function Game() {
   const [gameStarted, setGameStarted] = useState(false)
   const [playerName, setPlayerName] = useState("")
-  const { resetGame } = useGameStore()
-
+   const { gameState, resetGame, rice, timeLeft } = useGameStore()
   const handleStartGame = (name: string) => {
     setPlayerName(name)
     setGameStarted(true)
+    resetGame()
+    localStorage.setItem("currentPlayerName", name)
+  }
+
+  const handlePlayAgain = () => {
     resetGame()
   }
 
@@ -29,7 +33,7 @@ export default function Game() {
             <div className="bg-card border border-border rounded-2xl p-8 shadow-lg">
               <h1 className="text-3xl font-serif font-bold text-primary mb-4 text-center">Trò Chơi Bao Cấp</h1>
               <p className="text-foreground/70 text-center mb-8">
-                Trải nghiệm cuộc sống thời bao cấp. Bắt đầu với 20kg lúa, giao dịch với các thương nhân, trả lời câu hỏi
+                Trải nghiệm cuộc sống thời bao cấp. Bắt đầu với 100kg lúa, giao dịch với các thương nhân, trả lời câu hỏi
                 để nhận giảm giá!
               </p>
 
@@ -80,7 +84,15 @@ export default function Game() {
         <GameUI playerName={playerName} />
         <GameBoard />
         <QuizModal />
-        <GameOverModal playerName={playerName} onRestart={() => setGameStarted(false)} />
+        <GameOverModal
+          isOpen={gameState.showResultModal}
+          finalScore={gameState.finalScore}
+          correctAnswers={gameState.correctAnswers}
+          riceLeft={rice}
+          timeLeft={timeLeft}
+          itemsCollected={Object.values(gameState.inventory).filter((v) => v > 0).length}
+          onClose={() => {}}
+          onPlayAgain={handlePlayAgain} />
       </main>
       <Footer />
     </div>
