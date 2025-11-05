@@ -12,7 +12,7 @@ const TIMELINE = [
 
 export default function ReformTimeline() {
   return (
-    <section className="rounded-xl border-l-4 border-primary/60 bg-card/40 p-6">
+    <section id="timeline" className="rounded-xl border-l-4 border-primary/60 bg-card/40 p-6 scroll-mt-24">
       <h2 className="text-2xl font-serif font-semibold text-primary mb-4">Tiến Trình Cải Tổ & Đổi Mới</h2>
       <div className="space-y-4 text-foreground/80">
         <ul className="space-y-3">

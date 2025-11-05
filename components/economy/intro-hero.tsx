@@ -8,9 +8,9 @@ export default function IntroHero() {
         <div className="absolute -bottom-10 -left-10 h-56 w-56 rounded-full bg-secondary/15 blur-3xl" />
       </div>
       <div className="relative">
-        <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary tracking-tight">
-          Cơ Chế Kinh Tế Thời Bao Cấp
-        </h1>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary tracking-tight break-keep">
+          <span className="whitespace-nowrap">Cơ Chế Kinh Tế Thời Bao Cấp</span>
+        </h2>
         <p className="mt-3 max-w-2xl text-foreground/70">
           Nhìn lại cơ chế kế hoạch hoá, tem phiếu, các chính sách trọng điểm và tiến trình Đổi Mới.
         </p>

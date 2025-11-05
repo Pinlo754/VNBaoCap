@@ -4,7 +4,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 export default function Concepts() {
   return (
-    <section className="rounded-xl border border-border/60 bg-card/50 p-4 md:p-6">
+    <section id="concepts" className="rounded-xl border border-border/60 bg-card/50 p-4 md:p-6 scroll-mt-24">
       <h2 className="text-2xl font-serif font-semibold text-primary mb-2">Khái Niệm Cốt Lõi</h2>
       <p className="text-sm text-foreground/70 mb-4">Một số khái niệm giúp định vị cơ chế bao cấp và các chuyển đổi chính.</p>
       <Accordion type="multiple" className="w-full">
