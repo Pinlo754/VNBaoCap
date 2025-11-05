@@ -282,6 +282,8 @@ interface GameStoreState {
   resetGame: () => void
   saveScore: (playerName: string) => Promise<void>
   getLeaderboard: () => Score[]
+  movePlayer: (direction: "up" | "down" | "left" | "right") => void
+  tryInteract: () => void
 }
 
 const MERCHANTS: Merchant[] = [
@@ -397,6 +399,46 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
   rice: 100,
   timeLeft: 300,
   keysPressed: new Set(),
+
+  movePlayer: (direction: "up" | "down" | "left" | "right") => {
+    const state = get()
+    let newX = state.playerPos.x
+    let newY = state.playerPos.y
+
+    if (direction === "up") newY = Math.max(0, newY - 1)
+    if (direction === "down") newY = Math.min(11, newY + 1)
+    if (direction === "left") newX = Math.max(0, newX - 1)
+    if (direction === "right") newX = Math.min(14, newX + 1)
+
+    const nearbyMerchant = MERCHANTS.find((m) => Math.abs(m.x - newX) <= 1 && Math.abs(m.y - newY) <= 1)
+
+    set({
+      playerPos: { x: newX, y: newY },
+      gameState: {
+        ...state.gameState,
+        playerPos: { x: newX, y: newY },
+        nearbyMerchant: nearbyMerchant || null,
+      },
+    })
+  },
+
+  tryInteract: () => {
+    const state = get()
+    if (state.gameState.nearbyMerchant && !state.gameState.showQuiz) {
+      const merchant = state.gameState.nearbyMerchant
+      const quizList = QUIZZES[merchant.item]
+        if (!quizList) return
+      const randomQuiz = quizList[Math.floor(Math.random() * quizList.length)]
+      set({
+        gameState: {
+          ...state.gameState,
+          showQuiz: true,
+          currentQuiz: randomQuiz,
+          currentMerchant: merchant,
+        },
+      })
+    }
+  },
 
   handleKeyDown: (e: KeyboardEvent) => {
     const key = e.key.toLowerCase()
