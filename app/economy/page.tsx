@@ -66,18 +66,22 @@ export default function Economy() {
         <div ref={sectionsRef} className="space-y-8">
           <Concepts />
           <EconomyFlow />
-          <Analysis />
           <ComparisonTable />
-          <ReformTimeline />
-          
-          {/* Charts Section */}
+          <Analysis />
           <section id="charts" className="space-y-8 scroll-mt-24">
             <InflationChart />
+          </section>
+
+          <ReformTimeline />
+
+          {/* Charts Section */}
+          <section id="charts" className="space-y-8 scroll-mt-24">
             <AgricultureChart />
           </section>
-          
+
           <PolicyGrid />
           <SocialImpact />
+  
           <Sources />
         </div>
       </main>

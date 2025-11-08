@@ -21,33 +21,34 @@ const COMPARISON_IMAGES = {
 export default function ComparisonTable() {
   const [activeTab, setActiveTab] = useState("bao-cap");
 
-  const criteria = [
-    {
-      k: "Quản Lý",
-      a: "Nhà nước tập trung",
-      m: "Nhiều thành phần, Nhà nước định hướng",
-    },
-    {
-      k: "Phân Phối",
-      a: "Theo kế hoạch, tem phiếu",
-      m: "Theo giá cả thị trường",
-    },
-    {
-      k: "Động Lực",
-      a: "Bình quân, thiếu sáng tạo",
-      m: "Cạnh tranh, năng suất cao",
-    },
-    {
-      k: "Giá Cả",
-      a: "Cố định, không thay đổi",
-      m: "Linh động, theo cung cầu",
-    },
-    {
-      k: "Kết Quả",
-      a: "Thiếu hụt, trì trệ",
-      m: "Phát triển nhanh, hội nhập quốc tế",
-    },
-  ];
+ const criteria = [
+   {
+     k: "Quản Lý",
+     a: "Nhà nước tập trung quản lý toàn bộ nền kinh tế thông qua kế hoạch hóa 5 năm. Các doanh nghiệp, hợp tác xã phải hoạt động theo chỉ tiêu pháp lệnh, không có quyền tự chủ hay quyết định sản xuất.",
+     m: "Nhà nước giữ vai trò định hướng vĩ mô, còn doanh nghiệp và tư nhân tự do sản xuất – kinh doanh trong khuôn khổ pháp luật. Cơ chế thị trường tạo ra cạnh tranh và linh hoạt trong quản lý.",
+   },
+   {
+     k: "Phân Phối",
+     a: "Hàng hóa được cấp phát theo kế hoạch bằng tem phiếu, đảm bảo tối thiểu nhu cầu sinh hoạt nhưng không phản ánh nhu cầu thực tế. Việc khan hiếm vật tư khiến chợ đen và cơ chế 'xin – cho' phát sinh.",
+     m: "Hàng hóa lưu thông tự do, giá cả phản ánh cung – cầu. Phân phối dựa vào sức mua, tạo động lực sản xuất và mở rộng lưu thông hàng hóa.",
+   },
+   {
+     k: "Động Lực",
+     a: "Thiếu cơ chế khuyến khích cá nhân, người lao động làm việc theo nghĩa vụ, không gắn lợi ích với kết quả. Tâm lý bình quân và ỷ lại phổ biến, làm giảm năng suất và sáng tạo.",
+     m: "Cạnh tranh và lợi ích vật chất trở thành động lực chính. Ai làm tốt có thu nhập cao, thúc đẩy đổi mới, sáng tạo và nâng cao hiệu quả kinh tế.",
+   },
+   {
+     k: "Giá Cả",
+     a: "Giá cả do Nhà nước ấn định, ổn định giả tạo và tách rời quy luật cung – cầu. Điều này khiến thị trường thiếu hàng, sản xuất không theo nhu cầu thực.",
+     m: "Giá cả do thị trường quyết định, phản ánh đúng quan hệ cung – cầu. Cơ chế này giúp phân bổ nguồn lực hiệu quả và kích thích đầu tư, sản xuất.",
+   },
+   {
+     k: "Kết Quả",
+     a: "Nền kinh tế trì trệ, thiếu hàng hóa, năng suất thấp, đời sống khó khăn. Các chính sách bao cấp kéo dài gây méo mó thị trường và phụ thuộc vào ngân sách Nhà nước.",
+     m: "Kinh tế phát triển năng động, hội nhập quốc tế, đa dạng hóa thành phần kinh tế. Việt Nam trở thành nước xuất khẩu, tăng trưởng nhanh sau Đổi Mới 1986.",
+   },
+ ];
+
 
   return (
     <section id="comparison" className="rounded-xl border border-border/60 p-6 bg-background scroll-mt-24">

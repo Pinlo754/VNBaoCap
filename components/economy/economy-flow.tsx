@@ -23,38 +23,41 @@ const STEPS = [
   {
     key: "plan",
     label: "Kế Hoạch Nhà Nước",
-    desc: "Chỉ tiêu pháp lệnh, kế hoạch 5 năm",
+    desc: "Nhà nước giữ vai trò trung tâm, lập kế hoạch 5 năm và giao chỉ tiêu pháp lệnh cho từng ngành, địa phương. Mọi hoạt động sản xuất đều phải tuân theo mệnh lệnh hành chính, không dựa vào quy luật thị trường.",
     icon: ClipboardList,
   },
   {
     key: "alloc",
     label: "Phân Bổ Vật Tư",
-    desc: "Cấp phát vật tư theo chỉ tiêu",
+    desc: "Nguyên vật liệu, máy móc, năng lượng... được Nhà nước cấp phát theo kế hoạch, không theo nhu cầu thực tế. Hệ thống phân bổ này dẫn đến thiếu hụt, chậm trễ và kém hiệu quả trong sản xuất.",
     icon: Package,
   },
   {
     key: "produce",
     label: "Sản Xuất",
-    desc: "Đơn vị bị ràng buộc, thiếu tự chủ",
+    desc: "Các xí nghiệp, hợp tác xã sản xuất theo chỉ tiêu Nhà nước giao, không có quyền tự chủ kinh doanh. Hiệu quả thấp, năng suất trì trệ vì thiếu động lực vật chất và cơ chế khuyến khích sáng tạo.",
     icon: Factory,
   },
   {
     key: "distribute",
     label: "Phân Phối (Tem Phiếu)",
-    desc: "Phân phối định mức, chợ đen xuất hiện",
+    desc: "Hàng hóa khan hiếm được phân phối theo định mức qua hệ thống tem phiếu. Cơ chế này giúp kiểm soát tiêu dùng nhưng làm nảy sinh chợ đen, đầu cơ và tình trạng 'xin – cho' phổ biến.",
     icon: Ticket,
   },
   {
     key: "consume",
     label: "Tiêu Dùng",
-    desc: "Thiếu hụt hàng hoá kéo dài",
+    desc: "Người dân mua hàng theo định mức, thường phải xếp hàng dài. Thiếu hụt kéo dài làm giảm chất lượng cuộc sống và kìm hãm nhu cầu, khiến nền kinh tế rơi vào vòng luẩn quẩn của khan hiếm và kém năng suất.",
     icon: ShoppingCart,
   },
 ];
 
 export default function EconomyFlow() {
   return (
-    <section id="flow" className="rounded-xl border border-border/60 p-6 bg-gradient-to-br from-background to-muted/20 scroll-mt-24">
+    <section
+      id="flow"
+      className="rounded-xl border border-border/60 p-6 bg-gradient-to-br from-background to-muted/20 scroll-mt-24"
+    >
       <h2 className="text-2xl font-serif font-semibold text-primary mb-6">
         Luồng Kinh Tế Bao Cấp
       </h2>
