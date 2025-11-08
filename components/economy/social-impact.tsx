@@ -35,42 +35,30 @@ export default function SocialImpact() {
             khăn: hình thành các "chợ trời", trao đổi hàng hóa ngoài kế hoạch –
             tiền đề của kinh tế thị trường tự phát.
           </p>
-          <div className="grid grid-cols-2 gap-3">
+
+          <div className="grid grid-cols-2 gap-3 pt-5">
             <Figure
-              src={SOCIAL_IMAGES.queue}
-              alt="Xếp hàng mua hàng"
-              caption="Xếp hàng mua nhu yếu phẩm"
+              src={SOCIAL_IMAGES.store}
+              alt="Cửa hàng mậu dịch"
+              caption="Cửa hàng mậu dịch"
               aspect="square"
             />
             <Figure
-              src={SOCIAL_IMAGES.stamp}
-              alt="Tem phiếu"
-              caption="Tem phiếu phân phối"
+              src={SOCIAL_IMAGES.riceCoupon}
+              alt="Phiếu mua gạo"
+              caption="Phiếu mua gạo"
               aspect="square"
             />
           </div>
         </div>
-        <div className="grid grid-rows-3 gap-3">
+        <div className="grid grid-rows-2 gap-3">
           <Figure
             src={SOCIAL_IMAGES.blackMarket}
             alt="Chợ trời"
             caption="Chợ tết thời bao cấp"
             aspect="video"
           />
-          <div className="grid grid-cols-2 gap-3">
-            <Figure
-              src={SOCIAL_IMAGES.store}
-              alt="Cửa hàng mậu dịch"
-              aspect="square"
-              caption="Cửa hàng mậu dịch"
-            />
-            <Figure
-              src={SOCIAL_IMAGES.riceCoupon}
-              alt="Phiếu mua gạo"
-              aspect="square"
-              caption="Phiếu mua gạo"
-            />
-          </div>
+
           <Figure
             src={SOCIAL_IMAGES.family}
             alt="Gia đình thời bao cấp"
@@ -82,5 +70,3 @@ export default function SocialImpact() {
     </section>
   );
 }
-
-
