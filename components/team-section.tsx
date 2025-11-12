@@ -16,7 +16,7 @@ export default function TeamSection() {
     },
     {
       id: 4,
-      name: "Đàm Hữu Hiện",
+      name: "Đàm Hải Hiện",
     },
   ]
 
